@@ -1,0 +1,18 @@
+name: On PR - Native - Builder Substrate
+
+on:
+  pull_request:
+    branches:
+      - main
+    paths:
+      - .github/workflows/**
+      - native/**
+      - Makefile
+
+jobs:
+  build:
+    runs-on: [self-hosted, neoverse-n1]
+    steps:
+      - uses: actions/checkout@v3
+      - name: Test Build Docker Image
+        run: make worker-native-aarch64-bs
