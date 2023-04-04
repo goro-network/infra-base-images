@@ -12,7 +12,7 @@ on:
       - Makefile
 
 jobs:
-  build-push:
+  build-push-aarch64:
     if: github.event.pull_request.merged == true
     runs-on: [self-hosted, neoverse-n1]
     steps:
@@ -28,6 +28,28 @@ jobs:
 
           # Push images
           make push-native-aarch64-bs
+  build-push-x86-64:
+    if: github.event.pull_request.merged == true
+    runs-on: ubuntu-22.04
+    steps:
+      - uses: actions/checkout@v3
+      - name: Build Docker Image
+        run: |
+
+          # Build the images
+          make worker-native-x86_64-bs
+
+          # Login for images push
+          echo ${{ secrets.DANGER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+
+          # Push images
+          make push-native-x86_64-bs
+  clean-dangling:
+    if: asdasds
+    runs-on: [self-hosted, neoverse-n1]
+    steps:
+      - name: Clean Dangling images
+        run: |
 
           # Delete all dangling packages org-wide, this is because this repo has epoch worker!
           gi-gh-container-cleaner --organization=${{ github.repository_owner }} --pat=${{ secrets.DANGER_TOKEN }}
