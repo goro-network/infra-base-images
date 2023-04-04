@@ -3,12 +3,12 @@ TAG_PREFIX		:=	ghcr.io/goro-network
 VER_WORKERS		:=	"2.303.0"
 RS_NIGHTLY		:=	"nightly-2023-02-10"
 RS_STABLE		:=	"1.68.2"
-ARM_CPUS		:=	cortex-a55 cortex-a76 neoverse-n1
+ARM_CPUS		:=	cortex-a55
 ARM_FEATS		:=	"-C target-feature=+neon,+aes,+sha2,+fp16"
 ARM_IMAGES		:=	$(addprefix native-aarch64-bs-,$(ARM_CPUS))
 ARM_WORKERS		:=	$(addprefix worker-native-aarch64-bs-,$(ARM_CPUS))
 ARM_REGISTRY	:=	$(addprefix push-native-aarch64-bs-,$(ARM_CPUS))
-INTEL_CPUS		:=	x86-64 sapphirerapids skylake-avx512
+INTEL_CPUS		:=	x86-64
 INTEL_IMAGES	:=	$(addprefix native-x86_64-bs-,$(INTEL_CPUS))
 INTEL_WORKERS	:=	$(addprefix worker-native-x86_64-bs-,$(INTEL_CPUS))
 INTEL_REGISTRY	:=	$(addprefix push-native-x86_64-bs-,$(INTEL_CPUS))
