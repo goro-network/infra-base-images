@@ -171,7 +171,6 @@ RUN cargo install --locked \
     cargo-nextest \
     cargo-spellcheck \
     cargo-udeps \
-    cargo-web \
     dylint-link \
     wasm-gc \
     wasm-pack && \
