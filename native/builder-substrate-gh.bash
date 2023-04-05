@@ -5,7 +5,6 @@ RUNNER_LABELS=${RUNNER_LABELS}
 RUNNER_NAME=${RUNNER_NAME}
 RUNNER_ORG=${RUNNER_ORG}
 RUNNER_TOKEN=${RUNNER_TOKEN}
-RUNNER_REG=$(curl -sX POST -H "Authorization: token ${RUNNER_TOKEN}" https://api.github.com/orgs/${RUNNER_ORG}/actions/runners/registration-token | jq .token --raw-output)
 
 ./config.sh \
     --disableupdate \
@@ -14,7 +13,7 @@ RUNNER_REG=$(curl -sX POST -H "Authorization: token ${RUNNER_TOKEN}" https://api
     --labels ${RUNNER_LABELS} \
     --name ${RUNNER_NAME} \
     --runnergroup ${RUNNER_GROUP} \
-    --token ${RUNNER_REG} \
+    --token ${RUNNER_TOKEN} \
     --url "https://github.com/${RUNNER_ORG}"
 
 cleanup_runner() {
