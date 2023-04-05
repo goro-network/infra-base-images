@@ -7,11 +7,11 @@ ARM_CPUS		:=	cortex-a55
 ARM_FEATS		:=	"-C target-feature=+neon,+aes,+sha2,+fp16"
 ARM_IMAGES		:=	$(addprefix native-aarch64-bs-,$(ARM_CPUS))
 ARM_WORKERS		:=	$(addprefix worker-native-aarch64-bs-,$(ARM_CPUS))
-ARM_REGISTRY	:=	$(addprefix push-native-aarch64-bs-,$(ARM_CPUS))
+ARM_REGISTRY		:=	$(addprefix push-native-aarch64-bs-,$(ARM_CPUS))
 INTEL_CPUS		:=	x86-64
-INTEL_IMAGES	:=	$(addprefix native-x86_64-bs-,$(INTEL_CPUS))
-INTEL_WORKERS	:=	$(addprefix worker-native-x86_64-bs-,$(INTEL_CPUS))
-INTEL_REGISTRY	:=	$(addprefix push-native-x86_64-bs-,$(INTEL_CPUS))
+INTEL_IMAGES		:=	$(addprefix native-x86_64-bs-,$(INTEL_CPUS))
+INTEL_WORKERS		:=	$(addprefix worker-native-x86_64-bs-,$(INTEL_CPUS))
+INTEL_REGISTRY		:=	$(addprefix push-native-x86_64-bs-,$(INTEL_CPUS))
 
 .PHONY: native-aarch64-bs ${ARM_IMAGES} ${ARM_WORKERS} ${ARM_REGISTRY} ${INTEL_IMAGES} ${INTEL_WORKERS} ${INTEL_REGISTRY}
 .ONESHELL: native-aarch64-bs ${ARM_IMAGES} ${ARM_WORKERS} ${ARM_REGISTRY} ${INTEL_IMAGES} ${INTEL_WORKERS} ${INTEL_REGISTRY}
