@@ -10,15 +10,15 @@ on:
       - Makefile
 
 jobs:
-  build-aarch64:
+  build-check-arm64:
     runs-on: [self-hosted, neoverse-n1]
     steps:
       - uses: actions/checkout@v3
       - name: Test Build Docker Image
-        run: make worker-native-aarch64-bs
-  build-x86-64:
+        run: make check
+  build-check-x64:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
       - name: Test Build Docker Image
-        run: make worker-native-x86_64-bs
+        run: make check
