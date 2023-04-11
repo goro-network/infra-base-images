@@ -12,7 +12,7 @@ on:
       - Makefile
 
 jobs:
-  build-push-aarch64:
+  build-push-arm64:
     if: github.event.pull_request.merged == true
     runs-on: [self-hosted, neoverse-n1]
     steps:
@@ -20,15 +20,12 @@ jobs:
       - name: Build Docker Image
         run: |
 
-          # Build the images
-          make worker-native-aarch64-bs
-
           # Login for images push
           echo ${{ secrets.DANGER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-          # Push images
-          make push-native-aarch64-bs
-  build-push-x86-64:
+          # Build & push
+          make
+  build-push-x64:
     if: github.event.pull_request.merged == true
     runs-on: ubuntu-22.04
     steps:
@@ -36,16 +33,14 @@ jobs:
       - name: Build Docker Image
         run: |
 
-          # Build the images
-          make worker-native-x86_64-bs
-
           # Login for images push
           echo ${{ secrets.DANGER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
 
-          # Push images
-          make push-native-x86_64-bs
-  clean-dangling:
+          # Build & push
+          make
+  build-push-cleanup:
     if: github.event.pull_request.merged == true
+    needs: [build-push-arm64, build-push-x64]
     runs-on: [self-hosted, neoverse-n1]
     steps:
       - name: Clean Dangling images
