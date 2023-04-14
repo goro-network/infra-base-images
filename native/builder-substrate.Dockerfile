@@ -90,31 +90,6 @@ RUN wget https://apt.llvm.org/llvm.sh && \
     rm -rf /var/lib/apt/lists/* && \
     rm llvm.sh
 
-## LLVM 14.0.0-1ubuntu1
-RUN apt-get update && \
-    apt-get install -y --no-install-recommends \
-    clang \
-    clang-format \
-    clang-tidy \
-    clangd \
-    libc++-dev \
-    libc++abi-dev \
-    libclang-cpp-dev \
-    libclang-dev \
-    libclc-dev \
-    libclc-ptx \
-    libllvm-ocaml-dev \
-    libomp-dev \
-    lld \
-    lldb \
-    llvm \
-    llvm-dev \
-    llvm-runtime \
-    python3-clang && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/*
-
 ## Build Args - Required
 ARG CPU_ARCH
 ARG CPU_NAME
@@ -169,7 +144,6 @@ RUN cargo install --locked \
     cargo-dylint \
     cargo-hack \
     cargo-nextest \
-    cargo-spellcheck \
     cargo-udeps \
     dylint-link \
     wasm-gc \
@@ -192,7 +166,7 @@ RUN echo "\n** Rust **" && \
     echo "\n** GCC **" && \
     gcc -v && \
     echo "\n** LLVM **" && \
-    clang -v && echo ""
+    clang-16 -v && echo ""
 
 LABEL maintainer "Aditya Kresna <kresna@gemtek.id>"
 LABEL org.opencontainers.image.source "https://github.com/goro-network/infra-base-images"
