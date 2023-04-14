@@ -4,8 +4,8 @@ FROM ubuntu:22.04
 ENV CARGO_HOME="/usr/local/cargo"
 ENV CARGO_BIN="${CARGO_HOME}/bin"
 ENV CARGO_INCREMENTAL="false"
-ENV CC="clang-15"
-ENV CXX="clang-15"
+ENV CC="clang-16"
+ENV CXX="clang-16"
 ENV DEBIAN_FRONTEND="noninteractive"
 ENV PATH="${CARGO_BIN}${PATH:+:${PATH}}"
 ENV RUSTUP_HOME="/usr/local/rustup"
@@ -79,6 +79,17 @@ RUN apt-get update && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
 
+## LLVM 16.0.2
+RUN wget https://apt.llvm.org/llvm.sh && \
+    chmod +x llvm.sh && \
+    ./llvm.sh 16 all && \
+    apt-get update && \
+    apt-get upgrade -y && \
+    apt-get autoremove -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm llvm.sh
+
 ## LLVM 14.0.0-1ubuntu1
 RUN apt-get update && \
     apt-get install -y --no-install-recommends \
@@ -103,17 +114,6 @@ RUN apt-get update && \
     apt-get autoremove -y && \
     apt-get clean && \
     rm -rf /var/lib/apt/lists/*
-
-## LLVM 15.0.7
-RUN wget https://apt.llvm.org/llvm.sh && \
-    chmod +x llvm.sh && \
-    ./llvm.sh 15 all && \
-    apt-get update && \
-    apt-get upgrade -y && \
-    apt-get autoremove -y && \
-    apt-get clean && \
-    rm -rf /var/lib/apt/lists/* && \
-    rm llvm.sh
 
 ## Build Args - Required
 ARG CPU_ARCH

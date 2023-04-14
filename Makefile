@@ -1,7 +1,7 @@
 MAKEFLAGS		+=	--silent --jobs 1
 CURRENT_CPU_UNAME	:=	$(shell uname -p)
 VER_WORKERS		:=	2.303.0
-RS_NIGHTLY		:=	nightly-2023-04-04
+RS_NIGHTLY		:=	nightly-2023-04-10
 RS_STABLE		:=	1.68.2
 TAG_PREFIX		:=	ghcr.io/goro-network
 TAG_NATIVE_CI		:=	${TAG_PREFIX}/native-ghrunner:${VER_WORKERS}
