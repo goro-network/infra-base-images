@@ -13,7 +13,7 @@ ARM_CPU_FEATS		:=	"-C target-feature=+neon,+aes,+sha2,+fp16"
 INTEL_CPU_NAME		:=	x86_64
 INTEL_CPU_NAME_ALT	:=	x64
 INTEL_CPU_LLVM		:=	x86-64
-INTEL_CPU_FEATS		:=	"-C target-feature=+aes,+avx2,+f16c,+fma,+pclmulqdq,+popcnt,+sha,+vaes,+vpclmulqdq"
+INTEL_CPU_FEATS		:=	"-C target-feature=+aes,+avx2,+f16c,+fma,+pclmulqdq,+popcnt"
 ifeq (${CURRENT_CPU_UNAME}, ${ARM_CPU_NAME})
 CPU_ARCH		:=	${ARM_CPU_NAME}
 CPU_ARCH_ALT		:= 	${ARM_CPU_NAME_ALT}
