@@ -28,6 +28,9 @@ RUN test -n "${CPU_ARCH:?}" && \
 
 ## Github Action Runner
 WORKDIR /builder/ghrunner
+RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
+    sh get-docker.sh && \
+    rm get-docker.sh
 RUN wget \
     -c "https://github.com/actions/runner/releases/download/v${RUNNER_VER}/actions-runner-linux-${CPU_ARCH_ALT}-${RUNNER_VER}.tar.gz" \
     -O - | tar -xzf - -C /builder/ghrunner
