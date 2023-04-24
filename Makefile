@@ -1,8 +1,8 @@
 MAKEFLAGS		+=	--silent --jobs 1
 CURRENT_CPU_UNAME	:=	$(shell uname -p)
 VER_WORKERS		:=	2.303.0
-RS_NIGHTLY		:=	nightly-2023-04-10
-RS_STABLE		:=	1.68.2
+RS_NIGHTLY		:=	nightly-2023-04-23
+RS_STABLE		:=	1.69.0
 ARM_CPU_NAME		:=	aarch64
 ARM_CPU_NAME_ALT	:=	arm64
 ARM_CPU_LLVM		:=	cortex-a55
