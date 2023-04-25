@@ -168,6 +168,6 @@ RUN echo "\n** Rust **" && \
     echo "\n** LLVM **" && \
     clang-16 -v && echo ""
 
-LABEL maintainer "Aditya Kresna <kresna@gemtek.id>"
+LABEL org.opencontainers.image.authors "Aditya Kresna <kresna@gemtek.id>"
 LABEL org.opencontainers.image.source "https://github.com/goro-network/infra-base-images"
-LABEL org.opencontainers.image.description "This image is used to build Parity's Substrate based chain for ${CPU_ARCH}-${CPU_NAME}"
+LABEL org.opencontainers.image.description "This image is used to build Parity's Substrate based chain for aarch64 & x86_64"
