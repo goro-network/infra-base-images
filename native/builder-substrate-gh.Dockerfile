@@ -38,8 +38,8 @@ RUN wget \
 COPY builder-substrate-gh.bash runner-start.bash
 RUN chmod +x runner-start.bash
 
-LABEL maintainer "Aditya Kresna <kresna@gemtek.id>"
+LABEL org.opencontainers.image.authors "Aditya Kresna <kresna@gemtek.id>"
 LABEL org.opencontainers.image.source "https://github.com/goro-network/infra-base-images"
-LABEL org.opencontainers.image.description "This is a Github Action version of Parity's Substrate Builder for ${CPU_ARCH}-${CPU_NAME}"
+LABEL org.opencontainers.image.description "This is a Github Action version of Parity's Substrate Builder for aarch64 & x86_64"
 
 ENTRYPOINT [ "./runner-start.bash" ]
