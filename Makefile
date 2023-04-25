@@ -67,6 +67,7 @@ docker-native-base:
 	docker buildx build \
 		-t ${TAG_NATIVE_BASE} \
 		-f native/builder-substrate.Dockerfile \
+		--pull \
 		--progress plain \
 		--platform ${CPU_PLATFORM} \
 		--build-arg CPU_ARCH=${CPU_ARCH} \
@@ -82,6 +83,7 @@ docker-native-ci: | docker-native-base
 	docker buildx build \
 		-t ${TAG_NATIVE_CI} \
 		-f native/builder-substrate-gh.Dockerfile \
+		--pull \
 		--progress plain \
 		--platform ${CPU_PLATFORM} \
 		--build-arg BASE_IMAGE_NAME=${TAG_NATIVE_BASE} \
