@@ -14,11 +14,15 @@ jobs:
     runs-on: [self-hosted, neoverse-n1]
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
       - name: Test Build Docker Image
         run: make check
   build-check-x64:
     runs-on: ubuntu-22.04
     steps:
       - uses: actions/checkout@v3
+        with:
+          submodules: recursive
       - name: Test Build Docker Image
         run: make check

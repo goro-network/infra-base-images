@@ -1,0 +1,39 @@
+[submodule "submodules/sccache"]
+	path = submodules/sccache
+	url = https://github.com/mozilla/sccache.git
+[submodule "submodules/cargo-crev"]
+	path = submodules/cargo-crev
+	url = https://github.com/crev-dev/cargo-crev.git
+[submodule "submodules/cargo-deny"]
+	path = submodules/cargo-deny
+	url = https://github.com/EmbarkStudios/cargo-deny.git
+[submodule "submodules/cargo-hack"]
+	path = submodules/cargo-hack
+	url = https://github.com/taiki-e/cargo-hack.git
+[submodule "submodules/dylint"]
+	path = submodules/dylint
+	url = https://github.com/trailofbits/dylint.git
+[submodule "submodules/wasm-pack"]
+	path = submodules/wasm-pack
+	url = https://github.com/rustwasm/wasm-pack.git
+[submodule "submodules/wasm-bindgen"]
+	path = submodules/wasm-bindgen
+	url = https://github.com/rustwasm/wasm-bindgen.git
+[submodule "submodules/websocat"]
+	path = submodules/websocat
+	url = https://github.com/vi/websocat.git
+[submodule "submodules/wasmtime"]
+	path = submodules/wasmtime
+	url = https://github.com/bytecodealliance/wasmtime.git
+[submodule "submodules/diener"]
+	path = submodules/diener
+	url = https://github.com/paritytech/diener.git
+[submodule "submodules/subwasm"]
+	path = submodules/subwasm
+	url = https://github.com/chevdor/subwasm.git
+[submodule "submodules/cargo-contract"]
+	path = submodules/cargo-contract
+	url = https://github.com/paritytech/cargo-contract.git
+[submodule "submodules/subxt"]
+	path = submodules/subxt
+	url = https://github.com/paritytech/subxt.git
