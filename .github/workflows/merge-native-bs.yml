@@ -40,8 +40,3 @@ jobs:
 
           # Delete all dangling packages org-wide, this is because this repo has epoch worker!
           gi-gh-container-cleaner --organization=${{ github.repository_owner }} --pat=${{ secrets.DANGER_TOKEN }}
-      - name: Multiarch Manifest
-        run: |
-
-          # Docker manifest for latest & versioned unified
-          make manifest
