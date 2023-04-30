@@ -12,7 +12,7 @@ on:
       - Makefile
 
 jobs:
-  build-push-arm64:
+  build-push:
     if: github.event.pull_request.merged == true
     runs-on: [self-hosted, neoverse-n1]
     steps:
@@ -27,24 +27,9 @@ jobs:
 
           # Build & push
           make
-  build-push-x64:
-    if: github.event.pull_request.merged == true
-    runs-on: ubuntu-22.04
-    steps:
-      - uses: actions/checkout@v3
-        with:
-          submodules: recursive
-      - name: Build Docker Image
-        run: |
-
-          # Login for images push
-          echo ${{ secrets.DANGER_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
-
-          # Build & push
-          make
   build-push-cleanup:
     if: github.event.pull_request.merged == true
-    needs: [build-push-arm64, build-push-x64]
+    needs: [build-push]
     runs-on: [self-hosted, neoverse-n1]
     steps:
       - uses: actions/checkout@v3

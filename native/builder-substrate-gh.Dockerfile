@@ -26,11 +26,7 @@ WORKDIR /builder/ghrunner
 RUN curl -fsSL https://get.docker.com -o get-docker.sh && \
     sh get-docker.sh && \
     rm get-docker.sh
-RUN if [[ ${TARGETARCH} == amd64 ]]; \
-    then export CPU_ARCH_ALT="amd64"; \
-    elif [[ ${TARGETARCH} == arm64 ]]; \
-    then export CPU_ARCH_ALT="arm64"; \
-    else exit 1; fi && \
+RUN CPU_ARCH_ALT=$(bash -c 'if [[ "${TARGETARCH}" == "amd64" ]]; then echo "x64"; else echo "arm64"; fi'); \
     wget \
     -c "https://github.com/actions/runner/releases/download/v${RUNNER_VER}/actions-runner-linux-${CPU_ARCH_ALT}-${RUNNER_VER}.tar.gz" \
     -O - | tar -xzf - -C /builder/ghrunner
