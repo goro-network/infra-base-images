@@ -1,7 +1,7 @@
 MAKEFLAGS			+=	--jobs 1
 RS_NIGHTLY			:=	nightly-2023-03-25
 RS_STABLE			:=	1.69.0
-VER_WORKERS			:=	2.304.0
+VER_WORKERS			:=	2.306.0
 BUILDX_BUILDER_NAME		:=	buildx-multiarch-builder
 BUILDX_PLATFORM_ARM64		:=	linux/arm64
 BUILDX_PLATFORM_AMD64		:=	linux/amd64
